@@ -6,7 +6,7 @@ class CodingChallenges()
 {
     public static void Main(string[] args)
     {
-
+        ChooseFunction();
 
         Console.WriteLine("Welcome to my Coding Challenge program. There will be a variety of different functions you will have to choose from. Please pick one.");
         Console.WriteLine("We are going to use the number adder called SUM. Please input two numbers for us to add. \n");
@@ -157,9 +157,12 @@ class CodingChallenges()
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero"
         };
 
+        int functionNumber;
+
         foreach (string function in functions)
         {
-            Console.WriteLine();
+            Console.WriteLine(functions[functionNumber]);
+            functionNumber++;
         }
         
     }
