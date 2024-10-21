@@ -121,7 +121,7 @@ class CodingChallenges()
             number2 = Console.ReadLine();
         }
 
-        Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (number1 + number2) + "\n\n");
+        Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (number1int + number2int) + "\n\n");
     }
 
     public static void MinuteConversion ()
