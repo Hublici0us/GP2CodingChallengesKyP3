@@ -67,7 +67,7 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100"
         };
 
 
@@ -96,6 +96,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 5) { FindLeapYearFunction(); }
         else if (chosenFunctionInt == 6) { TriAreaFunction(); }
         else if (chosenFunctionInt == 7) { LessThanOrEqualToZeroFunction(); }
+        else if (chosenFunctionInt == 8) { LessThan100(); }
     }
 
     public static void SumFunction ()
@@ -130,7 +131,12 @@ class CodingChallenges()
         Console.WriteLine("Please input a number for minutes.");
 
         var minuteCount = Console.ReadLine();
-        int minutesInt = int.Parse(minuteCount);
+        int minutesInt;
+        while (!int.TryParse(minuteCount, out minutesInt))
+        {
+            Console.WriteLine("Error: Please input a number.");
+            minuteCount = Console.ReadLine();
+        }
 
         Console.WriteLine("The number of seconds inside " + minutesInt + " minutes is " + MinuteConvert(minutesInt) + "\n\n");
     }
@@ -195,5 +201,39 @@ class CodingChallenges()
         var checklessthan0 = Console.ReadLine();
         int checklessthan0int = int.Parse(checklessthan0);
         Console.WriteLine("The statement " + checklessthan0int + " is less than or equal to 0 is " + lessThanOrEqualToZero(checklessthan0int) + "\n\n");
+    }
+
+    public static void LessThan100()
+    {
+        Console.WriteLine("We are going to use the Less than 100 function, finding if a sum of two numbers is less than 100.\n Please input two numbers for us to add. \n");
+        // \n makes the next line go down. Put it at the end of the string.
+
+        var number1 = Console.ReadLine(); // Console.ReadLine lets the user input a command.
+        int number1int;
+        while (!int.TryParse(number1, out number1int))
+        {
+            Console.WriteLine("Error: Please input a number.");
+            number1 = Console.ReadLine();
+        }
+
+        Console.WriteLine("Now please input a second number.");
+
+        var number2 = Console.ReadLine();
+        int number2int;
+        while (!int.TryParse(number2, out number2int))
+        {
+            Console.WriteLine("Error: Please input a number.");
+            number2 = Console.ReadLine();
+        }
+
+        int addedint = (number1int + number2int);
+        if (addedint < 100)
+        {
+            Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (addedint) + ". The statement that this number is less than 100 is TRUE.\n\n");
+        }
+        else
+        {
+            Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (addedint) + ". The statement that this number is less than 100 is FALSE.\n\n");
+        }
     }
 }
