@@ -10,11 +10,6 @@ class CodingChallenges()
         ChooseFunction();
     }
 
-    public static int Sum (int a, int b)
-    {
-        return( a + b ) ;
-    }
-
     public static int MinuteConvert (int minutes)
     {
         return ( minutes * 60 ) ;  
@@ -67,7 +62,7 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers"
         };
 
 
@@ -97,6 +92,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 6) { TriAreaFunction(); }
         else if (chosenFunctionInt == 7) { LessThanOrEqualToZeroFunction(); }
         else if (chosenFunctionInt == 8) { LessThan100(); }
+        else if (chosenFunctionInt == 9) { IsEqual(); }
     }
 
     public static void SumFunction ()
@@ -205,7 +201,7 @@ class CodingChallenges()
 
     public static void LessThan100()
     {
-        Console.WriteLine("We are going to use the Less than 100 function, finding if a sum of two numbers is less than 100.\n Please input two numbers for us to add. \n");
+        Console.WriteLine("We are going to use the Less than 100 function, finding if a sum of two numbers is less than or equal to 100.\n Please input two numbers for us to add. \n");
         // \n makes the next line go down. Put it at the end of the string.
 
         var number1 = Console.ReadLine(); // Console.ReadLine lets the user input a command.
@@ -229,11 +225,42 @@ class CodingChallenges()
         int addedint = (number1int + number2int);
         if (addedint < 100)
         {
-            Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (addedint) + ". The statement that this number is less than 100 is TRUE.\n\n");
+            Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (addedint) + ". The statement that this number is less than or equal to 100 is TRUE.\n\n");
         }
         else
         {
-            Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (addedint) + ". The statement that this number is less than 100 is FALSE.\n\n");
+            Console.WriteLine("The sum of the number " + number1 + " and the number " + number2 + " is equal to: " + (addedint) + ". The statement that this number is less than or equal to 100 is FALSE.\n\n");
+        }
+    }
+
+    public static void IsEqual()
+    {
+        Console.Write("We are going to use the IsEqual function, finding if two numbers are equal.\n Please input two numbers for us to compare. \n");
+        var number1 = (Console.ReadLine());
+        int number1int;
+        while (!int.TryParse(number1, out number1int))
+        {
+            Console.WriteLine("Error: Please input a number.");
+            number1 = Console.ReadLine();
+        }
+
+        Console.WriteLine("Now please input a second number.");
+
+        var number2 = Console.ReadLine();
+        int number2int;
+        while (!int.TryParse(number2, out number2int))
+        {
+            Console.WriteLine("Error: Please input a number.");
+            number2 = Console.ReadLine();
+        }
+
+        if (number1int == number2int)
+        {
+            Console.WriteLine("The two numbers " + number1int + " and the number " + number2int + " are equal.");
+        }
+        else
+        {
+            Console.WriteLine("The two numbers " + number1int + " and the number " + number2int + " are unequal.");
         }
     }
 }
