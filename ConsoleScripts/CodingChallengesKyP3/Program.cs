@@ -62,7 +62,7 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething"
         };
 
 
@@ -93,6 +93,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 7) { LessThanOrEqualToZeroFunction(); }
         else if (chosenFunctionInt == 8) { LessThan100(); }
         else if (chosenFunctionInt == 9) { IsEqual(); }
+        else if (chosenFunctionInt == 10) { GiveMeSomething(); }
     }
 
     public static void SumFunction ()
@@ -262,5 +263,13 @@ class CodingChallenges()
         {
             Console.WriteLine("The two numbers " + number1int + " and the number " + number2int + " are unequal.");
         }
+    }
+
+    public static void GiveMeSomething()
+    {
+        Console.WriteLine("We are going to use the function that adds the word 'something' before anything you type.\n");
+        Console.WriteLine("Please write literally anything.");
+        var words = Console.ReadLine();
+        Console.WriteLine("something " + words);
     }
 }
