@@ -62,7 +62,7 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething" , "ReverseBool"
         };
 
 
@@ -94,6 +94,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 8) { LessThan100(); }
         else if (chosenFunctionInt == 9) { IsEqual(); }
         else if (chosenFunctionInt == 10) { GiveMeSomething(); }
+        else if (chosenFunctionInt == 11) { ReverseTheBool(); }
     }
 
     public static void SumFunction ()
@@ -271,5 +272,33 @@ class CodingChallenges()
         Console.WriteLine("Please write literally anything.");
         var words = Console.ReadLine();
         Console.WriteLine("something " + words);
+    }
+
+    public static void ReverseTheBool()
+    {
+        Console.WriteLine("We are going to use the function that reverses a truth or a lie.\n");
+        Console.WriteLine("Type in either [true] or [false].");
+        var boolean = Console.ReadLine();
+        bool check;
+        if (string.Compare(boolean, "true") == 1)
+        {
+            check = false;
+            Console.WriteLine(check);
+        }
+        else if (string.Compare(boolean, "false") == 2)
+        {
+            check = true;
+            Console.WriteLine(check);
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please type all lowercase.");
+        }
+
+    }
+
+    public static void ReverseTTheBool()
+    {
+        
     }
 }
