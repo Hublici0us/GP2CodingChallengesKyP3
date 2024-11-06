@@ -280,25 +280,31 @@ class CodingChallenges()
         Console.WriteLine("Type in either [true] or [false].");
         var boolean = Console.ReadLine();
         bool check;
-        if (string.Compare(boolean, "true") == 1)
+
+        while (!bool.TryParse(boolean, out check))
         {
-            check = false;
-            Console.WriteLine(check);
+            Console.WriteLine("Invalid input. Please try again.");
+            boolean = Console.ReadLine();
         }
-        else if (string.Compare(boolean, "false") == 2)
+
+        string trueString = "true";
+        string falseString = "false";
+
+        if (boolean.Contains(trueString))
         {
             check = true;
-            Console.WriteLine(check);
+            Console.WriteLine(ReverseIt(check));
         }
-        else
+        else if (boolean.Contains(falseString))
         {
-            Console.WriteLine("Invalid input. Please type all lowercase.");
+            check = false;
+            Console.WriteLine(ReverseIt(check));
         }
 
-    }
+        static bool ReverseIt(bool bool1)
+        {
+            return !bool1;
+        }
 
-    public static void ReverseTTheBool()
-    {
-        
     }
 }
