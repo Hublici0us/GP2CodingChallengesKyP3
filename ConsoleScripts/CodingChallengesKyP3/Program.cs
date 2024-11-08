@@ -62,7 +62,7 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething" , "ReverseBool"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds"
         };
 
 
@@ -95,6 +95,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 9) { IsEqual(); }
         else if (chosenFunctionInt == 10) { GiveMeSomething(); }
         else if (chosenFunctionInt == 11) { ReverseTheBool(); }
+        else if (chosenFunctionInt == 12) { HoursToSeconds(); }
     }
 
     public static void SumFunction ()
@@ -306,5 +307,22 @@ class CodingChallenges()
             return !bool1;
         }
 
+    }
+
+    public static void HoursToSeconds()
+    {
+        Console.WriteLine("We are going to use the function that finds out how many seconds are in a given amount of hours.\n");
+        Console.WriteLine("Please input a number.");
+
+        var hours = Console.ReadLine();
+        float hoursFloat;
+
+        while (!float.TryParse(hours, out hoursFloat))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            hours = Console.ReadLine();
+        }
+
+        Console.WriteLine("The amount of seconds in " + hours + " hours is " + (hoursFloat * 3600));
     }
 }
