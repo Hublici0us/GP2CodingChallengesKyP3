@@ -2,12 +2,16 @@
 using System;
 using System.Net.WebSockets;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 class CodingChallenges()
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to my Coding Challenge program. There will be a variety of different functions you will have to choose from. Please pick one.");
-        ChooseFunction();
+        while (true)
+        {
+            Console.WriteLine("Welcome to my Coding Challenge program. There will be a variety of different functions you will have to choose from. Please pick one.");
+            ChooseFunction();
+        }
     }
 
     public static int MinuteConvert (int minutes)
@@ -62,7 +66,7 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "Exit"
         };
 
 
@@ -96,6 +100,9 @@ class CodingChallenges()
         else if (chosenFunctionInt == 10) { GiveMeSomething(); }
         else if (chosenFunctionInt == 11) { ReverseTheBool(); }
         else if (chosenFunctionInt == 12) { HoursToSeconds(); }
+        else if (chosenFunctionInt == 13) { FindAnglePolygon(); }
+
+        else if (chosenFunctionInt == 14) { Environment.Exit(-1); }
     }
 
     public static void SumFunction ()
@@ -324,5 +331,22 @@ class CodingChallenges()
         }
 
         Console.WriteLine("The amount of seconds in " + hours + " hours is " + (hoursFloat * 3600));
+    }
+
+    public static void FindAnglePolygon()
+    {
+        Console.WriteLine("We are going to use the function that finds out the sum of internal angles of a polygon with an n amount of sides.\n");
+        Console.WriteLine("Please input a number for n.");
+
+        var sides = Console.ReadLine();
+        int sidesInt;
+
+        while(!int.TryParse(sides, out sidesInt) || int.Parse(sides) <= 2)
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            sides = Console.ReadLine();
+        }
+
+        Console.WriteLine("The sum of the internal angles in a " + sidesInt + "-sided polygon is " + ((sidesInt - 2) * 180) + " degrees.\n");
     }
 }
