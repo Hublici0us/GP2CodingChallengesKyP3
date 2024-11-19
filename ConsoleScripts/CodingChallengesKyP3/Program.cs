@@ -66,7 +66,8 @@ class CodingChallenges()
     {
         string[] functions =
         {
-            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "Exit"
+            "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
+            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "Exit"
         };
 
 
@@ -101,8 +102,9 @@ class CodingChallenges()
         else if (chosenFunctionInt == 11) { ReverseTheBool(); }
         else if (chosenFunctionInt == 12) { HoursToSeconds(); }
         else if (chosenFunctionInt == 13) { FindAnglePolygon(); }
+        else if (chosenFunctionInt == 14) { AddEdabit();  }
 
-        else if (chosenFunctionInt == 14) { Environment.Exit(-1); }
+        else if (chosenFunctionInt == 15) { Environment.Exit(-1); }
     }
 
     public static void SumFunction ()
@@ -348,5 +350,14 @@ class CodingChallenges()
         }
 
         Console.WriteLine("The sum of the internal angles in a " + sidesInt + "-sided polygon is " + ((sidesInt - 2) * 180) + " degrees.\n");
+    }
+
+    public static void AddEdabit()
+    {
+        Console.WriteLine("We are going to use the function that adds the word 'Edabit' to anything you input.\n");
+        Console.WriteLine("Please input anything.");
+
+        var name = Console.ReadLine();
+        Console.WriteLine(name + "Edabit.\n");
     }
 }
