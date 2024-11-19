@@ -104,7 +104,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 13) { FindAnglePolygon(); }
         else if (chosenFunctionInt == 14) { AddEdabit();  }
 
-        else if (chosenFunctionInt == 15) { Environment.Exit(-1); }
+        else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
 
     public static void SumFunction ()
