@@ -406,7 +406,7 @@ class CodingChallenges()
             check2 = false;
         }
 
-        Console.WriteLine(CheckBools(check, check2));
+        Console.WriteLine("And(" + check + ", " + check2 + ") -> " + CheckBools(check, check2) + "\n\n");
 
         static bool CheckBools(bool bool1, bool bool2)
         {
