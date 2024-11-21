@@ -67,7 +67,7 @@ class CodingChallenges()
         string[] functions =
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
-            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "Exit"
+            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "Exit"
         };
 
 
@@ -103,6 +103,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 12) { HoursToSeconds(); }
         else if (chosenFunctionInt == 13) { FindAnglePolygon(); }
         else if (chosenFunctionInt == 14) { AddEdabit();  }
+        else if (chosenFunctionInt == 15) { CheckIfBothTrue(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -359,5 +360,68 @@ class CodingChallenges()
 
         var name = Console.ReadLine();
         Console.WriteLine(name + "Edabit.\n");
+    }
+
+    public static void CheckIfBothTrue()
+    {
+        Console.WriteLine("We are going to use the function that takes two boolean values and returns true if both are true.\n");
+        Console.WriteLine("Type in either [true] or [false].");
+        var boolean1 = Console.ReadLine();
+        bool check;
+
+        while (!bool.TryParse(boolean1, out check))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            boolean1 = Console.ReadLine();
+        }
+
+        string trueString = "true";
+        string falseString = "false";
+
+        if (boolean1.Contains(trueString))
+        {
+            check = true;
+        }
+        else if (boolean1.Contains(falseString))
+        {
+            check = false;
+        }
+
+        Console.WriteLine("Please type in another [true] or [false].");
+        var boolean2 = Console.ReadLine();
+        bool check2;
+
+        while (!bool.TryParse(boolean2, out check2))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            boolean2 = Console.ReadLine();
+        }
+
+        if (boolean2.Contains(trueString))
+        {
+            check2 = true;
+        }
+        else if (boolean2.Contains(falseString))
+        {
+            check2 = false;
+        }
+
+        Console.WriteLine(CheckBools(check, check2));
+
+        static bool CheckBools(bool bool1, bool bool2)
+        {
+            if (bool1 == true && bool2 == true)
+            {
+                return true;
+            }
+            else if (bool1 == false && bool2 == false)
+            {
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
