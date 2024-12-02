@@ -4,6 +4,7 @@ using System;
 using System.Net.WebSockets;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 class CodingChallenges()
 {
     public static void Main(string[] args)
@@ -68,7 +69,7 @@ class CodingChallenges()
         string[] functions =
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
-            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "Exit"
+            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "Exit"
         };
 
 
@@ -105,6 +106,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 13) { FindAnglePolygon(); }
         else if (chosenFunctionInt == 14) { AddEdabit();  }
         else if (chosenFunctionInt == 15) { CheckIfBothTrue(); }
+        else if (chosenFunctionInt == 16) { BBallPoints(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -424,5 +426,33 @@ class CodingChallenges()
                 return false;
             }
         }
+    }
+
+    static void BBallPoints()
+    {
+        Console.WriteLine("We are going to use the function that finds the amount of 2 and 3 pointers you shot (assuming you make all buckets) and adds up all the points.\n");
+        Console.WriteLine("How many 2 pointers did you make?");
+
+        var twoPointers = Console.ReadLine();
+        float twoPointersInt;
+
+        while (!float.TryParse(twoPointers, out twoPointersInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            twoPointers = Console.ReadLine();
+        }
+
+        Console.WriteLine("How many 3 pointers did you make?");
+
+        var threePointers = Console.ReadLine();
+        float threePointersInt;
+
+        while (!float.TryParse(threePointers, out threePointersInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            threePointers = Console.ReadLine();
+        }
+
+        Console.WriteLine("Points: ([" + twoPointersInt + "] 2-pointers, [" + threePointersInt + "] 3-pointers" + ") -> " + ((twoPointersInt * 2) + (threePointersInt * 3)));
     }
 }
