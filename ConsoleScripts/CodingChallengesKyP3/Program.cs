@@ -69,7 +69,7 @@ class CodingChallenges()
         string[] functions =
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
-            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "Exit"
+            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "Exit"
         };
 
 
@@ -107,6 +107,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 14) { AddEdabit();  }
         else if (chosenFunctionInt == 15) { CheckIfBothTrue(); }
         else if (chosenFunctionInt == 16) { BBallPoints(); }
+        else if (chosenFunctionInt == 17) { FindPerimeter(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -454,5 +455,33 @@ class CodingChallenges()
         }
 
         Console.WriteLine("Points: ([" + twoPointersInt + "] 2-pointers, [" + threePointersInt + "] 3-pointers" + ") -> " + ((twoPointersInt * 2) + (threePointersInt * 3)));
+    }
+
+    static void FindPerimeter()
+    {
+        Console.WriteLine("We are going to use the function that finds the perimeter of a rectangle in cm.\n");
+        Console.WriteLine("Enter length");
+
+        var length = Console.ReadLine();
+        float lengthInt;
+
+        while (!float.TryParse(length, out lengthInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            length = Console.ReadLine();
+        }
+
+        Console.WriteLine("Enter width");
+
+        var width = Console.ReadLine();
+        float widthInt;
+
+        while (!float.TryParse(width, out widthInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            width = Console.ReadLine();
+        }
+
+        Console.WriteLine("The perimeter with dimensions(" + lengthInt + " cm, " + widthInt + " cm) is = " + (lengthInt * 2 + widthInt * 2) + "cm.\n\n");
     }
 }
