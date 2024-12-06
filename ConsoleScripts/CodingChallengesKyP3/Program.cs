@@ -69,7 +69,7 @@ class CodingChallenges()
         string[] functions =
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
-            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "Exit"
+            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", "Exit"
         };
 
 
@@ -108,6 +108,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 15) { CheckIfBothTrue(); }
         else if (chosenFunctionInt == 16) { BBallPoints(); }
         else if (chosenFunctionInt == 17) { FindPerimeter(); }
+        else if (chosenFunctionInt == 18) { HelloName(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -483,5 +484,14 @@ class CodingChallenges()
         }
 
         Console.WriteLine("The perimeter with dimensions(" + lengthInt + " cm, " + widthInt + " cm) is = " + (lengthInt * 2 + widthInt * 2) + "cm.\n\n");
+    }
+
+    static void HelloName()
+    {
+        Console.WriteLine("We are going to use the function that says hello to you!\n");
+        Console.WriteLine("What's your name?");
+
+        var name = Console.ReadLine();
+        Console.WriteLine("heyyyyy " + name + " ! :D\n\n");
     }
 }
