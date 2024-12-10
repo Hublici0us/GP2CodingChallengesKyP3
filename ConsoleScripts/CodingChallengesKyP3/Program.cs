@@ -69,7 +69,8 @@ class CodingChallenges()
         string[] functions =
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
-            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", "Exit"
+            "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
+            "AnimalLegs" , "FootballPoints" , "Exit"
         };
 
 
@@ -109,6 +110,8 @@ class CodingChallenges()
         else if (chosenFunctionInt == 16) { BBallPoints(); }
         else if (chosenFunctionInt == 17) { FindPerimeter(); }
         else if (chosenFunctionInt == 18) { HelloName(); }
+        else if (chosenFunctionInt == 19) { AnimalLegs(); }
+        else if (chosenFunctionInt == 20) { FootBallPoints(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -493,5 +496,93 @@ class CodingChallenges()
 
         var name = Console.ReadLine();
         Console.WriteLine("heyyyyy " + name + " ! :D\n\n");
+    }
+
+    static void AnimalLegs()
+    {
+        int chickenLegs = 2;
+        int cowLegs = 4;
+        int pigLegs = 4;
+
+        Console.WriteLine("We are going to use the function that finds the total amount of legs in a collection of animals.\n");
+        Console.WriteLine("How many chickens are there?");
+
+        var chicken = Console.ReadLine();
+        float chickensInt;
+
+        while (!float.TryParse(chicken, out chickensInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            chicken = Console.ReadLine();
+        }
+
+        Console.WriteLine("How many cows are there?");
+
+        var cow = Console.ReadLine();
+        float cowsInt;
+
+        while (!float.TryParse(cow, out cowsInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            cow = Console.ReadLine();
+        }
+
+        Console.WriteLine("How many pigs are there?");
+
+        var pig = Console.ReadLine();
+        float pigsInt;
+
+        while (!float.TryParse(pig, out pigsInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            pig = Console.ReadLine();
+        }
+
+        Console.WriteLine("With " + chickensInt + " chickens, " + cowsInt + " cows, and " + pigsInt + " pigs, there are a total of " + ((chickensInt * chickenLegs) + (cowsInt * cowLegs) + (pigsInt * pigLegs)) + " legs.");
+
+    }
+
+    static void FootBallPoints()
+    {
+        int winPoints = 3;
+        int drawPoints = 1;
+        int lossPoints = 0;
+
+        Console.WriteLine("We are going to use the function that finds the total amount of points a football team got in a football game.\n");
+        Console.WriteLine("How many wins were there?");
+
+        var wins = Console.ReadLine();
+        float winsInt;
+
+        while (!float.TryParse(wins, out winsInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            wins = Console.ReadLine();
+        }
+
+        Console.WriteLine("How many draws were there?");
+
+        var draws = Console.ReadLine();
+        float drawsInt;
+
+        while (!float.TryParse(draws, out drawsInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            draws = Console.ReadLine();
+        }
+
+        Console.WriteLine("How many losses were there?");
+
+        var losses = Console.ReadLine();
+        float lossesInt;
+
+        while (!float.TryParse(losses, out lossesInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            losses = Console.ReadLine();
+        }
+
+        Console.WriteLine("With " + winsInt + " wins, " + drawsInt + " draws, and " + lossesInt + " losses, there are a total of " + ((winsInt * winPoints) + (drawsInt * drawPoints) + (lossesInt * lossPoints)) + " points.\n\n");
+
     }
 }
