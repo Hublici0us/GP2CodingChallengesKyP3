@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.Globalization;
 using System.Net.WebSockets;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -70,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "Exit"
         };
 
 
@@ -112,6 +113,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 18) { HelloName(); }
         else if (chosenFunctionInt == 19) { AnimalLegs(); }
         else if (chosenFunctionInt == 20) { FootBallPoints(); }
+        else if (chosenFunctionInt == 21) { FindMonth();  }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -584,5 +586,29 @@ class CodingChallenges()
 
         Console.WriteLine("With " + winsInt + " wins, " + drawsInt + " draws, and " + lossesInt + " losses, there are a total of " + ((winsInt * winPoints) + (drawsInt * drawPoints) + (lossesInt * lossPoints)) + " points.\n\n");
 
+    }
+
+    static void FindMonth()
+    {
+        Console.WriteLine("We are going to use the function that finds the month based on the corresponding number that you will input.\n");
+        Console.WriteLine("Input a month number.");
+
+        string[] monthIndex = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+        var monthNum = Console.ReadLine();
+        int monthNumInt;
+        while (!int.TryParse(monthNum, out monthNumInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            monthNum = Console.ReadLine();
+        }
+
+        while (monthNumInt >= 13 || monthNumInt <= 0)
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            monthNum = Console.ReadLine(); monthNumInt = int.Parse(monthNum);
+        }
+
+        Console.WriteLine((monthNumInt) + " corresponds to " + monthIndex[monthNumInt - 1] + "\n\n");
     }
 }
