@@ -71,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax","Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "Exit"
         };
 
 
@@ -115,6 +115,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 20) { FootBallPoints(); }
         else if (chosenFunctionInt == 21) { FindMonth();  }
         else if (chosenFunctionInt == 22) { MinAndMax(); }
+        else if (chosenFunctionInt == 23) { Censorship(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -643,5 +644,28 @@ class CodingChallenges()
         float maximum = listOfNumbers.Max();
 
         Console.WriteLine("The minimum is " + minimum + " and the maximum is " + maximum + ".\n\n");
+    }
+
+    static void Censorship()
+    {
+        Console.WriteLine("This function is going to censor your values, l*k* th*s!");
+        Console.WriteLine("Please input anything, preferably letters.");
+
+        var input = Console.ReadLine();
+        string[] censoredVowels;
+        string a = "a";
+        string e = "e";
+        string i = "i";
+        string o = "o";
+        string u = "u";
+
+        string censoredInputA = input.Replace(a, "*");
+        string censoredInputE = censoredInputA.Replace(e, "*");
+        string censoredInputI = censoredInputE.Replace(i, "*");
+        string censoredInputO = censoredInputI.Replace(o, "*");
+        string censoredInputU = censoredInputO.Replace(u, "*");
+        string finalString = censoredInputU;
+
+        Console.WriteLine(finalString);
     }
 }
