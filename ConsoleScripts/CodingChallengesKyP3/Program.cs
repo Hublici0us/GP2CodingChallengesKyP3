@@ -71,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "Exit"
         };
 
 
@@ -116,6 +116,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 21) { FindMonth();  }
         else if (chosenFunctionInt == 22) { MinAndMax(); }
         else if (chosenFunctionInt == 23) { Censorship(); }
+        else if (chosenFunctionInt == 24) { AbsoluteSum(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -659,6 +660,11 @@ class CodingChallenges()
         string o = "o";
         string u = "u";
 
+        for (int f = 0;  f < input.Length; f++)
+        {
+
+        }
+
         string censoredInputA = input.Replace(a, "*");
         string censoredInputE = censoredInputA.Replace(e, "*");
         string censoredInputI = censoredInputE.Replace(i, "*");
@@ -667,5 +673,49 @@ class CodingChallenges()
         string finalString = censoredInputU;
 
         Console.WriteLine(finalString);
+    }
+
+    static void AbsoluteSum()
+    {
+        Console.WriteLine("We are going to use the function that finds the sum of an array and then shows the absolute value of that sum.\n");
+        Console.WriteLine("How many numbers are going to be in the array?");
+
+        var numbers = Console.ReadLine();
+        int amountNumbersInt;
+        while (!int.TryParse(numbers, out amountNumbersInt) || amountNumbersInt <= 0)
+        {
+            Console.WriteLine("Invalid input, please input a whole number.");
+            numbers = Console.ReadLine();
+        }
+
+        float[] listOfNumbers = new float[amountNumbersInt];
+
+        Console.WriteLine("Please fill out the list with the amount of numbers you assigned the array.");
+        for (int i = 0; i < listOfNumbers.Length; i++)
+        {
+            var newNumber = Console.ReadLine();
+            while (!float.TryParse(newNumber, out listOfNumbers[i]))
+            {
+                Console.WriteLine("Please input a number.");
+                newNumber = Console.ReadLine();
+            }
+        }
+
+        string AllValues = "";
+
+        for (int i = 0; i < listOfNumbers.Length; i++)
+        {
+            AllValues += listOfNumbers[i] + ",";
+            listOfNumbers[i] = MathF.Abs(listOfNumbers[i]);
+        }
+
+        float sumValue = 0;
+        
+        for (int i = 0; i < listOfNumbers.Length; i++)
+        {
+            sumValue += listOfNumbers[i];
+        }
+        Console.WriteLine("The sum of all your numbers(" + AllValues + ") is = " + sumValue);
+
     }
 }
