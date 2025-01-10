@@ -660,11 +660,6 @@ class CodingChallenges()
         string o = "o";
         string u = "u";
 
-        for (int f = 0;  f < input.Length; f++)
-        {
-
-        }
-
         string censoredInputA = input.Replace(a, "*");
         string censoredInputE = censoredInputA.Replace(e, "*");
         string censoredInputI = censoredInputE.Replace(i, "*");
