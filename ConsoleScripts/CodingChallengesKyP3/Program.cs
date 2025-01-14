@@ -71,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "Exit"
         };
 
 
@@ -117,6 +117,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 22) { MinAndMax(); }
         else if (chosenFunctionInt == 23) { Censorship(); }
         else if (chosenFunctionInt == 24) { AbsoluteSum(); }
+        else if (chosenFunctionInt == 25) { CalculateExponent(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -712,5 +713,30 @@ class CodingChallenges()
         }
         Console.WriteLine("The sum of all your numbers(" + AllValues + ") is = " + sumValue);
 
+    }
+
+    static void CalculateExponent()
+    {
+        Console.WriteLine("We are going to use the function that finds the value of a base number to an exponent number.\n");
+        Console.WriteLine("Input a base number.");
+
+        var baseNum = Console.ReadLine();
+        float baseNumInt;
+        while (!float.TryParse(baseNum, out baseNumInt))
+        {
+            Console.WriteLine("Invalid input, please input a whole number.");
+            baseNum = Console.ReadLine();
+        }
+
+        Console.WriteLine("Input an exponent number.");
+        var exponent = Console.ReadLine();
+        float exponentInt;
+        while (!float.TryParse(exponent, out exponentInt))
+        {
+            Console.WriteLine("Invalid input, please input a whole number.");
+            exponent = Console.ReadLine();
+        }
+
+        Console.WriteLine("The number " + baseNumInt + " raised to the exponent " + exponentInt + " is equal to " + MathF.Pow(baseNumInt, exponentInt) +"\n\n");
     }
 }
