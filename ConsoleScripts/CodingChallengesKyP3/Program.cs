@@ -71,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "Exit"
         };
 
 
@@ -118,6 +118,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 23) { Censorship(); }
         else if (chosenFunctionInt == 24) { AbsoluteSum(); }
         else if (chosenFunctionInt == 25) { CalculateExponent(); }
+        else if (chosenFunctionInt == 26) { MultiplyByLength();  }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -738,5 +739,45 @@ class CodingChallenges()
         }
 
         Console.WriteLine("The number " + baseNumInt + " raised to the exponent " + exponentInt + " is equal to " + MathF.Pow(baseNumInt, exponentInt) +"\n\n");
+    }
+
+    static void MultiplyByLength()
+    {
+        Console.WriteLine("We are going to use the function that multiplies each value in an array by the length of the array.\n");
+        Console.WriteLine("How many numbers are going to be in the array?");
+
+        var numbers = Console.ReadLine();
+        int amountNumbersInt;
+        while (!int.TryParse(numbers, out amountNumbersInt) || amountNumbersInt <= 0)
+        {
+            Console.WriteLine("Invalid input, please input a whole number.");
+            numbers = Console.ReadLine();
+        }
+
+        float[] listOfNumbers = new float[amountNumbersInt];
+
+        Console.WriteLine("Please fill out the list with the amount of numbers you assigned the array.");
+        for (int i = 0; i < listOfNumbers.Length; i++)
+        {
+            var newNumber = Console.ReadLine();
+            while (!float.TryParse(newNumber, out listOfNumbers[i]))
+            {
+                Console.WriteLine("Please input a number.");
+                newNumber = Console.ReadLine();
+            }
+        }
+
+        string AllFirstValues = "";
+        string AllMultipliedValues = "";
+
+        for (int i = 0; i < listOfNumbers.Length; i++)
+        {
+            AllFirstValues += listOfNumbers[i] + ",";
+            listOfNumbers[i] *= amountNumbersInt;
+            AllMultipliedValues += listOfNumbers[i] + ",";
+        }
+
+        Console.WriteLine("The values you inputted (" + AllFirstValues + ") were multiplied to become (" + AllMultipliedValues + ")\n\n");
+
     }
 }
