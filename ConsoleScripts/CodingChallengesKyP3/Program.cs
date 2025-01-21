@@ -71,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "Exit"
         };
 
 
@@ -119,6 +119,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 24) { AbsoluteSum(); }
         else if (chosenFunctionInt == 25) { CalculateExponent(); }
         else if (chosenFunctionInt == 26) { MultiplyByLength();  }
+        else if (chosenFunctionInt == 27) { HammingDistance(); }  
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -779,5 +780,42 @@ class CodingChallenges()
 
         Console.WriteLine("The values you inputted (" + AllFirstValues + ") were multiplied to become (" + AllMultipliedValues + ")\n\n");
 
+    }
+
+    static void HammingDistance()
+    {
+        Console.WriteLine("This function finds the difference between 2 strings.");
+        Console.WriteLine("Please input the first string.");
+        var input = Console.ReadLine();
+
+        Console.WriteLine("Please input the second string.");
+        var input2 = Console.ReadLine();
+
+        int stringLengthDif = input.Length - input2.Length;
+        int difference = 0;
+
+        List<char> input1List = new List<char>(); 
+        List<char> input2List = new List<char>();
+
+        for (int i =0; i < input.Length; i++)
+        {
+            input1List.Add(input[i]);
+        }
+        for (int i =0; i < input2.Length; i++)
+        {
+            input2List.Add(input2[i]);
+        }
+        
+
+        for (int i = 0; i <= input.Length; i++)
+        {
+            if (input.Substring(i) != input2.Substring(i))
+            {
+                difference += 1;
+            }
+        }
+
+
+        Console.WriteLine(input + ", " + input2 + " -> " + difference);
     }
 }
