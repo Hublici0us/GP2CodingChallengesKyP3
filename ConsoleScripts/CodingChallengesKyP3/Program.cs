@@ -71,7 +71,7 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "NameSwitch" ,"Exit"
         };
 
 
@@ -120,6 +120,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 25) { CalculateExponent(); }
         else if (chosenFunctionInt == 26) { MultiplyByLength();  }
         else if (chosenFunctionInt == 27) { HammingDistance(); }  
+        else if (chosenFunctionInt == 28) { NameShuffle(); }
 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -787,9 +788,21 @@ class CodingChallenges()
         Console.WriteLine("This function finds the difference between 2 strings.");
         Console.WriteLine("Please input the first string.");
         var input = Console.ReadLine();
+        while (input ==  null)
+        {
+            Console.WriteLine("Please make an input.");
+            input = Console.ReadLine();
+        }
+        string firstInput = input;
 
-        Console.WriteLine("Please input the second string.");
+        Console.WriteLine("Please input the second string (MUST BE SAME LENGTH AS FIRST STRING).");
         var input2 = Console.ReadLine();
+        while (input2.Length != input.Length || input2 == null)
+        {
+            Console.WriteLine("Please make an input.");
+            input2 = Console.ReadLine();
+        }
+        string secondInput = input2;
 
         int stringLengthDif = input.Length - input2.Length;
         int difference = 0;
@@ -797,25 +810,39 @@ class CodingChallenges()
         List<char> input1List = new List<char>(); 
         List<char> input2List = new List<char>();
 
-        for (int i =0; i < input.Length; i++)
+        for (int i =0; i < firstInput.Length; i++)
         {
-            input1List.Add(input[i]);
+            input1List.Add(firstInput[i]);
         }
-        for (int i =0; i < input2.Length; i++)
+        for (int i =0; i < secondInput.Length; i++)
         {
-            input2List.Add(input2[i]);
+            input2List.Add(secondInput[i]);
         }
         
-
-        for (int i = 0; i <= input.Length; i++)
+        
+        for (int i = 0; i < input1List.Count; i++)
         {
-            if (input.Substring(i) != input2.Substring(i))
+            if (input1List[i] != input2List[i])
             {
-                difference += 1;
+                difference++;
             }
         }
 
 
         Console.WriteLine(input + ", " + input2 + " -> " + difference);
+    }
+
+    static void NameShuffle()
+    {
+        Console.WriteLine("This function is going to switch yoour first and last name.");
+        Console.WriteLine("Please input first name.");
+
+        var firstName = Console.ReadLine();
+
+        Console.WriteLine("Please input last name.");
+
+        var lastName = Console.ReadLine();
+
+        Console.WriteLine("The name " + firstName + " " + lastName + " switched is " + lastName + " " + firstName + ".\n\n");
     }
 }
