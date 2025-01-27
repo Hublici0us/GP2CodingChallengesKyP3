@@ -71,7 +71,8 @@ class CodingChallenges()
         {
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
-            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "NameSwitch" ,"Exit"
+            "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "NameSwitch" , 
+            "SmallestNumber" , "Exit"
         };
 
 
@@ -121,7 +122,8 @@ class CodingChallenges()
         else if (chosenFunctionInt == 26) { MultiplyByLength();  }
         else if (chosenFunctionInt == 27) { HammingDistance(); }  
         else if (chosenFunctionInt == 28) { NameShuffle(); }
-
+        else if (chosenFunctionInt == 29) { SmallestNum(); }
+ 
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
 
@@ -844,5 +846,44 @@ class CodingChallenges()
         var lastName = Console.ReadLine();
 
         Console.WriteLine("The name " + firstName + " " + lastName + " switched is " + lastName + " " + firstName + ".\n\n");
+    }
+
+    static void SmallestNum()
+    {
+        Console.WriteLine("We are going to use the function that finds the smallest number in two inputs.\n");
+        Console.WriteLine("Please input the first number.");
+
+        var firstInput = Console.ReadLine();
+        float firstInputInt;
+
+        while (!float.TryParse(firstInput, out firstInputInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            firstInput = Console.ReadLine();
+        }
+
+        Console.WriteLine("Please input the second number.");
+
+        var secondInput = Console.ReadLine();
+        float secondInputInt;
+
+        while (!float.TryParse(secondInput, out secondInputInt))
+        {
+            Console.WriteLine("Invalid input. Please try again.");
+            secondInput = Console.ReadLine();
+        }
+
+        if (firstInputInt > secondInputInt)
+        {
+            Console.WriteLine("The smallest number is " + secondInputInt);
+        }
+        if (firstInputInt < secondInputInt)
+        {
+            Console.WriteLine("The smallest number is " + firstInput);
+        }
+        if (firstInputInt == secondInputInt)
+        {
+            Console.WriteLine("Both numbers are the same.");
+        }
     }
 }
