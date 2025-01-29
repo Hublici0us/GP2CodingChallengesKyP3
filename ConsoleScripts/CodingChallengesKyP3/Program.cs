@@ -72,7 +72,7 @@ class CodingChallenges()
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
             "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "NameSwitch" , 
-            "SmallestNumber" , "Exit"
+            "SmallestNumber" , "Factorial" , "Exit"
         };
 
 
@@ -123,6 +123,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 27) { HammingDistance(); }  
         else if (chosenFunctionInt == 28) { NameShuffle(); }
         else if (chosenFunctionInt == 29) { SmallestNum(); }
+        else if (chosenFunctionInt == 30) { Factorial(); }
  
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -885,5 +886,29 @@ class CodingChallenges()
         {
             Console.WriteLine("Both numbers are the same.");
         }
+    }
+
+    static void Factorial()
+    {
+        Console.WriteLine("We are going to use the function that finds the value of a base number and factorial it.\n");
+        Console.WriteLine("Input a base number.");
+
+        var baseNum = Console.ReadLine();
+        float baseNumInt;
+
+        while (!float.TryParse(baseNum, out baseNumInt))
+        {
+            Console.WriteLine("Invalid input, please input a whole number.");
+            baseNum = Console.ReadLine();
+        }
+
+        float factoredBase = baseNumInt;
+
+        for (int i = 1; i < (baseNumInt - 1); i++)
+        {
+            factoredBase *= (baseNumInt - i);
+        }
+
+        Console.WriteLine("The factorial of " + baseNumInt + " is " +  factoredBase + "\n\n");
     }
 }
