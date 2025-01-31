@@ -72,7 +72,7 @@ class CodingChallenges()
             "Sum", "MinuteConvert", "AddOne", "FindPower", "YearsToDays", "IsLeapYear", "TriangleArea", "LessThanOrEqualToZero", "SumLessThan100" , 
             "TwoEqualNumbers" , "AddSomething" , "ReverseBool" , "HoursToSeconds", "FindAngleSum", "AddEdabit" , "CheckIfBothTrue" , "BasketballPoints" , "FindPerimeter" , "SayHello!", 
             "AnimalLegs" , "FootballPoints" , "FindMonth" , "MinAndMax", "CensorString" , "AbsoluteSum" , "FindExponent" , "MultiplyByLength" , "HammingDistance", "NameSwitch" , 
-            "SmallestNumber" , "Factorial" , "Exit"
+            "SmallestNumber" , "Factorial" , "VowelCount" , "Exit"
         };
 
 
@@ -124,6 +124,7 @@ class CodingChallenges()
         else if (chosenFunctionInt == 28) { NameShuffle(); }
         else if (chosenFunctionInt == 29) { SmallestNum(); }
         else if (chosenFunctionInt == 30) { Factorial(); }
+        else if (chosenFunctionInt == 31) { VowelCount(); }
  
         else if (chosenFunctionInt == functions.Length) { Environment.Exit(1); }
     }
@@ -910,5 +911,46 @@ class CodingChallenges()
         }
 
         Console.WriteLine("The factorial of " + baseNumInt + " is " +  factoredBase + "\n\n");
+    }
+
+    static void VowelCount()
+    {
+        Console.WriteLine("This function finds the amount of vowels in a string.");
+        Console.WriteLine("Please input the first string.");
+        var input = Console.ReadLine();
+        while (input == null)
+        {
+            Console.WriteLine("Please make an input.");
+            input = Console.ReadLine();
+        }
+        string firstInput = input;
+
+        List<char> input1List = new List<char>();
+
+        for (int i = 0; i < firstInput.Length; i++)
+        {
+            input1List.Add(firstInput[i]);
+        }
+
+        string vowels = "AEIOUaeiou";
+        List<char> vowelsList = new List<char>();
+
+        for (int i = 0; i < vowels.Length; i++)
+        {
+            vowelsList.Add(vowels[i]);
+        }
+
+
+        int vowelCount = 0;
+
+        for (int i = 0; i < input1List.Count; i++)
+        {
+            for (int j = 0; j < vowelsList.Count; j++)
+            {
+                if (vowels[j] == input1List[i]) { vowelCount++; }
+            }
+        }
+
+        Console.WriteLine("The number of vowels in [" + input + "] is " + vowelCount + ".\n\n");
     }
 }
