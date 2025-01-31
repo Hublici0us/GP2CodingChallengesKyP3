@@ -661,21 +661,46 @@ class CodingChallenges()
         Console.WriteLine("Please input anything, preferably letters.");
 
         var input = Console.ReadLine();
-        string[] censoredVowels;
-        string a = "a";
-        string e = "e";
-        string i = "i";
-        string o = "o";
-        string u = "u";
+        while (input == null)
+        {
+            Console.WriteLine("Please make an input.");
+            input = Console.ReadLine();
+        }
+        string firstInput = input;
 
-        string censoredInputA = input.Replace(a, "*");
-        string censoredInputE = censoredInputA.Replace(e, "*");
-        string censoredInputI = censoredInputE.Replace(i, "*");
-        string censoredInputO = censoredInputI.Replace(o, "*");
-        string censoredInputU = censoredInputO.Replace(u, "*");
-        string finalString = censoredInputU;
+        List<char> input1List = new List<char>();
 
-        Console.WriteLine(finalString);
+        for (int i = 0; i < firstInput.Length; i++)
+        {
+            input1List.Add(firstInput[i]);
+        }
+
+        string vowels = "AEIOUaeiou";
+        List<char> vowelsList = new List<char>();
+
+        for (int i = 0; i < vowels.Length; i++)
+        {
+            vowelsList.Add(vowels[i]);
+        }
+
+        string modifiedString = "";
+        string censoredVowels = "";
+
+        for (int i = 0; i < input1List.Count; i++)
+        {
+            for (int j = 0; j < vowelsList.Count; j++)
+            {
+                if (vowels[j] == input1List[i])
+                {
+                    censoredVowels += vowels[j];
+                    modifiedString += "*";
+                }
+            }
+            modifiedString += input1List[i];
+        }
+
+        Console.WriteLine(firstInput + " -> (" + modifiedString + ", " +  censoredVowels + ")\n\n");
+
     }
 
     static void AbsoluteSum()
